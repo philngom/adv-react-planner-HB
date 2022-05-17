@@ -23,7 +23,7 @@ function entriesReducer(entries, { type, payload }) {
 
 export const PlannerContext = createContext();
 
-const PlannerProvider = ({ children }) => {
+export const PlannerProvider = ({ children }) => {
   const [entries, dispatch] = useReducer(entriesReducer, []);
 
   useEffect(() => {
@@ -68,7 +68,7 @@ const PlannerProvider = ({ children }) => {
   );
 };
 
-const useEntries = () => {
+export const useEntries = () => {
   const context = useContext(PlannerContext);
 
   if (context === undefined) {
@@ -78,4 +78,4 @@ const useEntries = () => {
   return context;
 };
 
-export { PlannerProvider, useEntries };
+// export default { PlannerProvider, useEntries };
